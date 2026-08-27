@@ -8,6 +8,7 @@ import com.winlator.XServerDisplayActivity;
 import com.winlator.container.Container;
 import com.winlator.library.data.GameDatabase;
 import com.winlator.library.data.GameEntity;
+import com.winlator.library.storage.LibraryPreferences;
 
 import java.io.File;
 import java.util.concurrent.Executors;
@@ -35,6 +36,12 @@ public class GameLaunchCoordinator {
         containerProvider.ensure(activity, new AutomaticContainerProvider.Callback() {
             @Override
             public void onReady(Container container) {
+                LibraryPreferences preferences = new LibraryPreferences(activity);
+                if (!ContainerDriveMapper.ensureVisible(container, preferences.getLocalRoot(), game.resolvedLocalPath)) {
+                    listener.onLaunchError("A pasta deste jogo não pôde ser conectada ao ambiente Windows.");
+                    return;
+                }
+
                 long now = System.currentTimeMillis();
                 game.containerId = container.id;
                 game.lastPlayed = now;
