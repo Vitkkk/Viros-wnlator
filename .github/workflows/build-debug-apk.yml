@@ -50,7 +50,9 @@ jobs:
 
       - name: Build debug APK
         working-directory: .work/winlator-app
-        run: ./gradlew --no-daemon assembleDebug
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
