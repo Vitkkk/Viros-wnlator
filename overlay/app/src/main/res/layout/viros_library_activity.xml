@@ -38,9 +38,18 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/VirosFolderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:minWidth="0dp"
+            android:text="Pasta"
+            android:textAllCaps="false" />
+
+        <Button
             android:id="@+id/VirosRefreshButton"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
+            android:layout_marginStart="6dp"
             android:minWidth="0dp"
             android:text="Atualizar"
             android:textAllCaps="false" />
