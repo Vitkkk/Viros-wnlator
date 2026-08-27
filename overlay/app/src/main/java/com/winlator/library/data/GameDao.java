@@ -28,6 +28,9 @@ public interface GameDao {
     @Query("DELETE FROM games WHERE id = :id")
     void removeFromLibrary(long id);
 
-    @Query("DELETE FROM games WHERE folderUri LIKE :treePrefix || '%' AND executableUri NOT IN (:seenExecutableUris)")
-    void removeMissingFromTree(String treePrefix, List<String> seenExecutableUris);
+    @Query("DELETE FROM games")
+    void clear();
+
+    @Query("DELETE FROM games WHERE resolvedLocalPath LIKE :rootPrefix || '%' AND executableUri NOT IN (:seenExecutableUris)")
+    void removeMissingFromRoot(String rootPrefix, List<String> seenExecutableUris);
 }
