@@ -1,0 +1,28 @@
+diff --git a/app/src/main/java/com/winlator/xenvironment/RootFSInstaller.java b/app/src/main/java/com/winlator/xenvironment/RootFSInstaller.java
+--- a/app/src/main/java/com/winlator/xenvironment/RootFSInstaller.java
++++ b/app/src/main/java/com/winlator/xenvironment/RootFSInstaller.java
+@@ -5,6 +5,5 @@ import android.content.Context;
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+-import com.winlator.MainActivity;
+ import com.winlator.R;
+ import com.winlator.SettingsFragment;
+ import com.winlator.container.Container;
+@@ -43,7 +42,7 @@ public abstract class RootFSInstaller {
+         }
+     }
+ 
+-    public static void install(final MainActivity activity) {
++    public static void install(final AppCompatActivity activity) {
+         AppUtils.keepScreenOn(activity);
+         RootFS rootFS = RootFS.find(activity);
+         final File rootDir = rootFS.getRootDir();
+@@ -79,7 +78,7 @@ public abstract class RootFSInstaller {
+         });
+     }
+ 
+-    public static void installIfNeeded(final MainActivity activity) {
++    public static void installIfNeeded(final AppCompatActivity activity) {
+         RootFS rootFS = RootFS.find(activity);
+         if (!rootFS.isValid() || rootFS.getVersion() < LATEST_VERSION) install(activity);
+     }
