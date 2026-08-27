@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="viros_bg">#0A1220</color>
+    <color name="viros_surface">#14233A</color>
+    <color name="viros_surface_alt">#1B3152</color>
+    <color name="viros_text">#F4F7FB</color>
+    <color name="viros_text_muted">#9DB0CA</color>
+    <color name="viros_accent">#6EA8FF</color>
+</resources>
